@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animal Detection Alerts</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.stockcake.com/public/1/1/8/11889b2d-0ed2-4b64-b849-9851f7f20efa_large.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            text-shadow: 1px 1px 4px #000;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            margin: 0;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            box-shadow: 2px 2px 8px #000;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .alert-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #000;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .alert-box img {
+            display: block;
+            margin: 10px auto;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+    </style>
+    <script>
+        function startDetection() {
+            fetch('/start_detection', {method: 'POST'})
+            .then(response => response.json())
+            .then(data => alert('Detection ' + data.status));
+        }
+
+        function stopDetection() {
+            fetch('/stop_detection', {method: 'POST'})
+            .then(response => response.json())
+            .then(data => alert('Detection ' + data.status));
+        }
+    </script>
+</head>
+<body>
+    <h1> Welcome To Animal Detection Alert System To Keep Your Crop Secure</h1>
+
+    <div class="button-container">
+        <button onclick="startDetection()">Start Detection</button>
+        <button onclick="stopDetection()">Stop Detection</button>
+    </div>
+
+    {% for alert in alerts %}
+    <div class="alert-box">
+        <p><b>Animal:</b> {{ alert['animal'] }}</p>
+        <p><b>Time:</b> {{ alert['time'] }}</p>
+        <img src="data:image/jpeg;base64,{{ alert['image'] }}" />
+    </div>
+    {% endfor %}
+</body>
+</html>
+
+
+
