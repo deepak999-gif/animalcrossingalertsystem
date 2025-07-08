@@ -12,10 +12,8 @@ Crop damage due to stray animals (e.g., cows, pigs, deer, monkeys) leads to mass
 
 📢 Instant Alert System via buzzer.
 
-☁️ Optional Cloud Integration for remote monitoring.
-
 🏗️ Architecture
-[Camera Feed] --> [YOLO / OpenCV Model] --> [Detection Logic] --> [Alert System] --> [User Notification]
+[Camera Feed] --> [YOLO / OpenCV Model] --> [Detection Logic] --> [Alert System]
 Hardware (optional): Raspberry Pi / Arduino, Camera, GSM/Buzzer modules
 
 Software: Python, OpenCV, YOLOv5/v8, Flask/Django for UI/API, Firebase/Twilio for alerts
@@ -40,9 +38,6 @@ Run the application:
 python main.py
 
 
-🧪 Demo
-You can check out our Demo Video and Presentation Slides for a complete walkthrough.
-
 🐾 Future Improvements
 Integration with drones for aerial monitoring.
 
@@ -53,8 +48,8 @@ Support for multiple camera feeds.
 Solar-powered hardware kits for rural deployment.
 
 🙌 Team Members
-Desh Deepak pal – Project Documentation & UI
-Omkar – Embedded Systems
-Ayush kurenjekar – Backend & Alert System
-Omkar dibjyoti– Computer Vision Lead
+Desh Deepak pal – yolo model and overall development of project
+Ommkar Debata– Research and opencv implementation
+Ayush kuranjekar – Alert System
+Ayush Deep– Alert System testing(Quality Analysis)
 
